@@ -95,7 +95,7 @@ export default function Results() {
                     return (
                         <div key={link} className="sm:m-4 sm:ml-0 ml-2 sm:pr-8 sm:w-2/3 space-y-2 mb-8">
                             <div className="videoLinks">
-                                <a href={cite?.domain.split('›')[0]} target="_blank" className="hover:underline">
+                                <a href={cite?.domain?.split('›')[0]} target="_blank" className="hover:underline">
                                     <p className="font-xx">{cite?.domain}</p>
                                 </a>
                             </div>
@@ -114,7 +114,7 @@ export default function Results() {
                                 <a href={link} target="_blank">
                                     <p className="text-lg text-blue-700 dark:text-blue-300">
                                         {
-                                            title.length>25? title.substring(25)+'...':title
+                                            title?.length>25? title.substring(25)+'...':title
                                         }
                                     </p>
                                 </a>
