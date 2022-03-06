@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Layout from './components/Layout';
+import { useState } from 'react';
+import { Route, Navigate, Routes } from 'react-router-dom';
+import Results from './components/Results';
 function App() {
+  let [darkTheme, toggleDarkTheme] = useState(true);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={darkTheme?'dark':''}>
+        <Layout darkTheme={darkTheme} toggleDarkTheme={toggleDarkTheme}>
+          <Routes>
+            <Route exact path="/" exact element={<Navigate to="/search" />} />
+            <Route exact path="/:tab" element={ <Results />} />
+          </Routes>
+        </Layout>
     </div>
   );
 }
